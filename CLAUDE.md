@@ -55,3 +55,12 @@ There are no separate English or Kurdish URLs and no `hreflang`. Changing that i
 - `albahrany-qa-review`: visual, responsive, functional, language, accessibility and content review.
 
 The official Anthropic `frontend-design` plugin may be used for visual craft. Where it differs from these rules, the project rules win.
+
+## Redesign working rules (branch `redesign`)
+
+- Local preview: `python3 -m http.server 8000` from the repo root (or `npx serve .`). A local server also serves `_build/` and `CLAUDE.md`; GitHub Pages does not.
+- Colours, spacing, type sizes, radii and motion values come only from the `:root` custom properties in `assets/site.css`. No new hard-coded hex values or inline `style=""` (the `--cap` data variable on capacity bars is the one exception).
+- Logical CSS properties only (`inline`/`block`, `inset-inline-*`). No `left`/`right`; where a physical value is unavoidable (gradients, transforms), pair it with a `[dir]` rule.
+- No React, Tailwind, bundler or framework. The only build is `_build/build.py`.
+- Audit reports and screenshots go under `.webdev-studio/` (git-ignored, never published).
+- Never push to `main`: GitHub Pages publishes it, so a push is a production deploy.

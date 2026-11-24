@@ -27,10 +27,11 @@ from html.parser import HTMLParser
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "_build")
 SITE = "https://albahranygroup.com/"
-VERSION = "20261110"          # bump to force browsers to reload CSS/JS
-LASTMOD = "2026-11-10"        # sitemap <lastmod>
+VERSION = "20261124"          # bump to force browsers to reload CSS/JS
+LASTMOD = "2026-11-24"        # sitemap <lastmod>: set to the date the content last changed
 
 ORG_ID = SITE + "#organization"
+ORG_NAME = "Albahrany Group"
 
 
 def read(path):
@@ -126,6 +127,19 @@ def photo(match, base):
     return out + "</picture>"
 
 
+def share_image(path):
+    """(width, height, Arabic alt) of an Open Graph image; the alt is the one the pages already use."""
+    name = os.path.splitext(os.path.basename(path))[0]
+    w, h, _ = image_info(name)
+    alt = ""
+    for src in page_files() + sorted(glob.glob(os.path.join(SRC, "partials", "*.html"))):
+        m = re.search(r'<x-photo\b[^>]*\bname="%s"[^>]*\balt-ar="([^"]*)"' % re.escape(name), read(src))
+        if m:
+            alt = html.unescape(m.group(1))
+            break
+    return w, h, alt
+
+
 # --------------------------------------------------------------------------
 def page_files():
     return sorted(glob.glob(os.path.join(SRC, "pages", "*.html")))
@@ -164,7 +178,41 @@ def crumbs_html(meta, base):
             % "".join(items))
 
 
-def jsonld(meta):
+def plain(fragment):
+    """Visible text of an HTML fragment."""
+    return " ".join(html.unescape(re.sub(r"<[^>]+>", " ", fragment)).split())
+
+
+FAQ_ITEM = re.compile(r"<details\b[^>]*>\s*<summary\b[^>]*>(.*?)</summary>(.*?)</details>", re.S)
+
+
+def faq_schema(body, url):
+    """FAQPage built from the questions and answers that are visible on the page, so the two cannot drift."""
+    m = re.search(r'<section\b[^>]*\bid="faq".*?</section>', body, re.S)
+    if not m:
+        return None
+    items = [{"@type": "Question", "name": plain(q),
+              "acceptedAnswer": {"@type": "Answer", "text": plain(a)}}
+             for q, a in FAQ_ITEM.findall(m.group(0)) if plain(q) and plain(a)]
+    if not items:
+        return None
+    return {"@type": "FAQPage", "@id": url + "#faq", "inLanguage": "ar", "mainEntity": items}
+
+
+def name_org(node):
+    """A reference to the organisation by @id alone only resolves on the home page, where it is declared:
+    give every other reference its type, name and URL."""
+    if isinstance(node, list):
+        for n in node:
+            name_org(n)
+    elif isinstance(node, dict):
+        if node.get("@id") == ORG_ID and "name" not in node:
+            node.update({"@type": "HVACBusiness", "name": ORG_NAME, "url": SITE})
+        for v in node.values():
+            name_org(v)
+
+
+def jsonld(meta, body=""):
     graph = []
     url = SITE + ("" if meta["out"] == "index.html" else meta["out"])
     if meta.get("crumbs"):
@@ -175,7 +223,15 @@ def jsonld(meta):
         graph.append({"@type": "BreadcrumbList", "itemListElement": items})
     for node in meta.get("schema", []):
         node = json.loads(json.dumps(node).replace("{{url}}", url))
+        if node.get("@type") == "Service" and "description" not in node:
+            node["description"] = meta["desc"]["ar"]
+        if str(node.get("@type", "")).endswith("Page"):
+            node.setdefault("inLanguage", "ar")
+        name_org(node)
         graph.append(node)
+    faq = faq_schema(body, url)
+    if faq:
+        graph.append(faq)
     if not graph:
         return ""
     data = {"@context": "https://schema.org", "@graph": graph}
@@ -210,29 +266,38 @@ def build_page(meta, layout):
                             'data-navgroup="%s" data-current="true"' % meta["navgroup"])
 
     t, d = meta["title"], meta["desc"]
-    og_img = SITE + meta.get("og_image", "images/band-chiller-room.jpg")
+    og_path = meta.get("og_image", "images/band-chiller-room.jpg")
+    og_img = SITE + og_path
+    og_w, og_h, og_alt = share_image(og_path)
     head = []
     head.append("<title>%s</title>" % esc(t["ar"]))
     head.append('<meta name="description" content="%s">' % esc(d["ar"]))
     if meta.get("noindex"):
         head.append('<meta name="robots" content="noindex">')
     else:
+        head.append('<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">')
         head.append('<link rel="canonical" href="%s">' % url)
         head.append('<meta property="og:site_name" content="Albahrany Group">')
-        head.append('<meta property="og:type" content="%s">' % ("website" if out == "index.html" else "article"))
+        head.append('<meta property="og:type" content="website">')
         head.append('<meta property="og:url" content="%s">' % url)
         head.append('<meta property="og:locale" content="ar_IQ">')
         head.append('<meta property="og:locale:alternate" content="en_US">')
         head.append('<meta property="og:title" content="%s">' % esc(t["ar"]))
         head.append('<meta property="og:description" content="%s">' % esc(d["ar"]))
         head.append('<meta property="og:image" content="%s">' % og_img)
+        head.append('<meta property="og:image:width" content="%d">' % og_w)
+        head.append('<meta property="og:image:height" content="%d">' % og_h)
+        if og_alt:
+            head.append('<meta property="og:image:alt" content="%s">' % esc(og_alt))
         head.append('<meta name="twitter:card" content="summary_large_image">')
         head.append('<meta name="twitter:title" content="%s">' % esc(t["ar"]))
         head.append('<meta name="twitter:description" content="%s">' % esc(d["ar"]))
         head.append('<meta name="twitter:image" content="%s">' % og_img)
+        if og_alt:
+            head.append('<meta name="twitter:image:alt" content="%s">' % esc(og_alt))
     if meta.get("head_extra"):
         head.append(meta["head_extra"])
-    ld = jsonld(meta)
+    ld = jsonld(meta, body)
     if ld:
         head.append(ld)
     page = page.replace("<!--head-->", "\n".join(head))

@@ -1,0 +1,7 @@
+# audit reports and screenshots (never published)
+.webdev-studio/
+# Python bytecode from _build/build.py
+__pycache__/
+*.pyc
+# per-machine Claude Code settings
+.claude/settings.local.json

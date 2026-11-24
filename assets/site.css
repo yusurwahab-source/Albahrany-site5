@@ -190,7 +190,12 @@ html[lang="en"] .eyebrow { font-family: var(--font-mono); font-size: .76rem; let
 
 /* ---------- header & navigation ---------- */
 .site-header { position: sticky; top: 0; z-index: 50; background: rgba(255, 255, 255, .97); transition: box-shadow .25s; }
-@supports (backdrop-filter: blur(8px)) { .site-header { background: rgba(255, 255, 255, .9); backdrop-filter: saturate(1.4) blur(10px); } }
+/* the blur sits on a pseudo-element: backdrop-filter on the header itself would make it the containing block
+   of the fixed mobile drawer (.nav) and collapse the drawer to the header's height */
+@supports (backdrop-filter: blur(8px)) {
+  .site-header { background: none; }
+  .site-header::before { content: ""; position: absolute; inset: 0; z-index: -1; background: rgba(255, 255, 255, .9); backdrop-filter: saturate(1.4) blur(10px); }
+}
 .site-header.is-scrolled { box-shadow: 0 1px 0 var(--line), 0 8px 24px rgba(10, 31, 49, .07); }
 .header-in { display: flex; align-items: center; gap: 20px; min-height: var(--header-h); }
 .brand { flex: none; display: block; }
@@ -393,25 +398,33 @@ html[lang="en"] .hero h1 { max-width: 20ch; }
 .hero h1 .h1-sub { display: block; color: var(--on-dark-2); font-weight: 500; font-size: .5em; margin-top: .55em; line-height: 1.4; letter-spacing: 0; }
 .hero-lede { font-size: var(--fs-lead); color: var(--on-dark); opacity: .9; max-width: 54ch; margin-bottom: 1.8em; }
 
-.hero-sys { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--on-dark-line); }
-.hero-sys li + li { border-inline-start: 1px solid var(--on-dark-line); }
+.hero-sys {
+  --hs-text: var(--bg); --hs-muted: var(--on-dark-2); --hs-line: var(--on-dark-line); --hs-hover: rgba(255, 255, 255, .04);
+  list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--hs-line);
+}
+/* the system colour is set per item ([data-sys] on the li), so the mark is resolved there, not on the list */
+.hero-sys li { --hs-mark: var(--accent-bright); }
+/* same component on a light surface (about, 404) */
+.hero-sys-light { --hs-text: var(--ink); --hs-muted: var(--muted); --hs-line: var(--line-2); }
+.hero-sys-light li { --hs-mark: var(--accent); --hs-hover: var(--accent-tint); }
+.hero-sys li + li { border-inline-start: 1px solid var(--hs-line); }
 .hero-sys a {
   position: relative; display: grid; grid-template-columns: 1fr auto; gap: 6px 16px; height: 100%;
-  padding: 22px clamp(14px, 2vw, 28px) 26px; color: #fff; text-decoration: none; transition: background-color .25s;
+  padding: 22px clamp(14px, 2vw, 28px) 26px; color: var(--hs-text); text-decoration: none; transition: background-color .25s;
 }
 .hero-sys a::before {
-  content: ""; position: absolute; inset-inline: 0; top: -1px; height: 2px; background: var(--accent-bright);
+  content: ""; position: absolute; inset-inline: 0; top: -1px; height: 2px; background: var(--hs-mark);
   transform: scaleX(.18); transform-origin: var(--origin, left); transition: transform .35s var(--ease);
 }
 [dir="rtl"] .hero-sys a::before { --origin: right; }
-.hero-sys a:hover { background: rgba(255, 255, 255, .04); }
+.hero-sys a:hover { background: var(--hs-hover); }
 .hero-sys a:hover::before, .hero-sys a:focus-visible::before { transform: scaleX(1); }
-.hero-sys .sys-code { color: var(--accent-bright); grid-column: 1 / -1; font-size: .72rem; }
-.hero-sys .sys-code::before { background: var(--accent-bright); }
+.hero-sys .sys-code { color: var(--hs-mark); grid-column: 1 / -1; font-size: .72rem; }
+.hero-sys .sys-code::before { background: var(--hs-mark); }
 .hs-name { font-weight: 700; font-size: clamp(1.02rem, .95rem + .35vw, 1.2rem); line-height: 1.35; }
-.hs-desc { grid-column: 1; color: var(--on-dark-2); font-size: .9rem; line-height: 1.55; }
-.hero-sys .i { grid-column: 2; grid-row: 2 / span 2; align-self: center; color: var(--on-dark-2); transition: transform .25s var(--ease), color .2s; }
-.hero-sys a:hover .i { color: #fff; transform: translateX(3px); }
+.hs-desc { grid-column: 1; color: var(--hs-muted); font-size: .9rem; line-height: 1.55; }
+.hero-sys .i { grid-column: 2; grid-row: 2 / span 2; align-self: center; color: var(--hs-muted); transition: transform .25s var(--ease), color .2s; }
+.hero-sys a:hover .i { color: var(--hs-text); transform: translateX(3px); }
 [dir="rtl"] .hero-sys a:hover .i { transform: scaleX(-1) translateX(3px); }
 
 @media (max-width: 900px) {
@@ -422,11 +435,11 @@ html[lang="en"] .hero h1 { max-width: 20ch; }
   .hero-inner { padding-block: 0 32px; position: relative; }
   .hero-cap { top: 12px; }
   .hero-sys { grid-template-columns: 1fr; }
-  .hero-sys li + li { border-inline-start: 0; border-top: 1px solid var(--on-dark-line); }
+  .hero-sys li + li { border-inline-start: 0; border-top: 1px solid var(--hs-line); }
   .hero-sys a { padding: 16px 0 18px; }
   .hero-sys a::before { display: none; }
   .hero-sys li { position: relative; }
-  .hero-sys li::before { content: ""; position: absolute; inset-inline-start: 0; top: 22px; width: 3px; height: 18px; background: var(--accent-bright); }
+  .hero-sys li::before { content: ""; position: absolute; inset-inline-start: 0; top: 22px; width: 3px; height: 18px; background: var(--hs-mark); }
   .hero-sys a { padding-inline-start: 16px; }
 }
 @media (max-width: 560px) {

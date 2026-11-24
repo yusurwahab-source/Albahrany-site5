@@ -5,3 +5,6 @@ __pycache__/
 *.pyc
 # per-machine Claude Code settings
 .claude/settings.local.json
+# Cloudflare wrangler local state
+.wrangler/
+node_modules/

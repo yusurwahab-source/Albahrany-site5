@@ -1,0 +1,14 @@
+// Cloudflare Workers static-assets configuration for albahranygroup.com.
+// The site is served straight from the repository root; .assetsignore lists what must stay private.
+{
+  "name": "albahrany-site",
+  "compatibility_date": "2026-11-24",
+  "assets": {
+    "directory": "./",
+    // "none" keeps the public URLs exactly as they are (/about.html stays /about.html).
+    // The default would redirect every page to an address without ".html".
+    "html_handling": "none",
+    // unknown addresses get 404.html with a real 404 status
+    "not_found_handling": "404-page"
+  }
+}

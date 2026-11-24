@@ -1,0 +1,15 @@
+# Files Cloudflare must not publish (same idea as _config.yml for GitHub Pages).
+.git
+.gitignore
+.github
+.claude
+.webdev-studio
+.wrangler
+.assetsignore
+_build
+_config.yml
+CLAUDE.md
+CNAME
+wrangler.jsonc
+node_modules
+__pycache__

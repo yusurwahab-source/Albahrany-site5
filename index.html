@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>(function(d){try{var l=localStorage.getItem('ab-lang');if(l==='en'){d.lang='en';d.dir='ltr';}else if(l==='ku'){d.lang='ckb';}}catch(e){}d.classList.add('js');})(document.documentElement);</script>
+<script>(function(d){try{var l=localStorage.getItem('ab-lang');if(l==='en'){d.lang='en';d.dir='ltr';}else if(l==='ku'){d.lang='ckb';}if(l==='en'||l==='ku'){d.classList.add('i18n-wait');setTimeout(function(){d.classList.remove('i18n-wait');},1500);}}catch(e){}d.classList.add('js');})(document.documentElement);</script>
 <title>مجموعة البحراني — التبريد المركزي ومكافحة الحرائق وإدارة البنايات في العراق</title>
 <meta name="description" content="مجموعة البحراني: تصميم وتنفيذ وصيانة منظومات التبريد والتكييف المركزي ومكافحة الحرائق وإدارة البنايات (BMS) في العراق منذ 2002. وكالة حصرية لشركة Euroclima وموزّع معتمد لشركة Baltimore Aircoil.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
@@ -110,16 +110,15 @@
 <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 <meta name="theme-color" content="#0B2236">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="assets/site.css?v=20261124">
+<link rel="preload" href="assets/fonts/plex-sans-arabic-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/plex-sans-arabic-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css?v=20261125">
 </head>
 <body class="page-home">
 
 <a class="skip-link" href="#main" data-en="Skip to content" data-ku="بازدان بۆ ناوەڕۆک">تخطَّ إلى المحتوى</a>
 
-<div class="topbar">
+<aside class="topbar" aria-label="تواصل سريع" data-en-label="Quick contact" data-ku-label="پەیوەندیی خێرا">
   <div class="wrap topbar-in">
     <p class="topbar-note" data-en="Building services engineering in Iraq since 2002" data-ku="ئەندازیاریی خزمەتگوزارییەکانی باڵەخانە لە عێراق لە ساڵی 2002ەوە">هندسة خدمات البنايات في العراق منذ 2002</p>
     <ul class="topbar-links">
@@ -128,7 +127,7 @@
       <li><a href="mailto:Mahmood@albahranygroup.com"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg><span dir="ltr">Mahmood@albahranygroup.com</span></a></li>
     </ul>
   </div>
-</div>
+</aside>
 
 <header class="site-header" id="siteHeader">
   <div class="wrap header-in">
@@ -165,7 +164,7 @@
 
     <div class="header-actions">
       <div class="lang">
-        <button class="lang-btn" id="langBtn" type="button" aria-expanded="false" aria-controls="langMenu"><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg><span class="lang-cur" id="langCur" aria-hidden="true">AR</span><svg class="i chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+        <button class="lang-btn" id="langBtn" type="button" aria-expanded="false" aria-controls="langMenu"><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg><span class="visually-hidden" data-en="Language: English" data-ku="زمان: کوردی">اللغة: العربية</span><span class="lang-cur" id="langCur">AR</span><svg class="i chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
         <ul class="lang-menu" id="langMenu">
           <li><button type="button" data-set-lang="ar" lang="ar" dir="rtl">العربية</button></li>
           <li><button type="button" data-set-lang="en" lang="en" dir="ltr">English</button></li>
@@ -191,16 +190,16 @@
       <h1 id="heroTitle"><span data-en="Central cooling, fire protection and building management" data-ku="فێنککردنەوەی ناوەندی، بەرگری لە ئاگر و بەڕێوەبردنی باڵەخانە">التبريد المركزي ومكافحة الحرائق وإدارة البنايات</span> <span class="h1-sub" data-en="Designed, installed and maintained by one accountable contractor" data-ku="دیزاین، دامەزراندن و چاککاری لەلایەن یەک بەڵێندەری بەرپرسەوە">تصميم وتنفيذ وصيانة من جهة واحدة مسؤولة</span></h1>
       <p class="hero-lede" data-en="We design, install and maintain central cooling, fire protection and building management systems for hospitals, ministries and facilities across Iraq." data-ku="سیستەمەکانی فێنککردنەوەی ناوەندی، بەرگری لە ئاگر و بەڕێوەبردنی باڵەخانە بۆ نەخۆشخانە، وەزارەت و دامەزراوەکان لە سەرانسەری عێراق دیزاین دەکەین، دادەمەزرێنین و چاککارییان دەکەین.">نصمّم وننفّذ ونصين أنظمة التبريد المركزي ومكافحة الحرائق وإدارة البنايات للمستشفيات والوزارات والمنشآت في العراق.</p>
       <div class="btn-row">
-        <a class="btn btn-primary" href="contact.html"><span data-en="Request a technical study or quote" data-ku="داوای لێکۆڵینەوەی تەکنیکی یان نرخ بکە">اطلب دراسة فنية أو عرض سعر</span><svg class="i i-dir" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-primary" href="contact.html"><span data-en="Request a technical study or quote" data-ku="داوای لێکۆڵینەوەی تەکنیکی یان نرخ بکە">اطلب دراسة فنية أو عرض سعر</span></a>
         <a class="btn btn-secondary" href="tel:+9647734114077"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg><span dir="ltr">+964 773 411 4077</span></a>
       </div>
     </div>
   </div>
   <div class="wrap">
     <ul class="hero-sys" aria-label="الأنظمة الرئيسية" data-en-label="Main systems" data-ku-label="سیستەمە سەرەکییەکان">
-      <li data-sys="hvac"><a href="central-cooling.html"><span class="sys-code">HVAC · 01</span><span class="hs-name" data-en="Central Cooling &amp; HVAC" data-ku="فێنککردنەوە و ئێرکۆندیشنی ناوەندی">التبريد والتكييف المركزي</span><span class="hs-desc" data-en="Chillers, cooling towers, air handling units and VRF" data-ku="چیلەر، تاوەری فێنککەرەوە، یەکەی مامەڵەکردنی هەوا و VRF">الشلرات وأبراج التبريد ووحدات مناولة الهواء وأنظمة VRF</span><svg class="i i-dir" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
-      <li data-sys="fire"><a href="fire-protection.html"><span class="sys-code">FIRE · 02</span><span class="hs-name" data-en="Fire Protection" data-ku="بەرگری لە ئاگر">مكافحة الحرائق</span><span class="hs-desc" data-en="Sprinklers, fire pumps, alarm and FM‑200 suppression" data-ku="تۆڕی سپرینکلەر، پەمپی ئاگر، ئاگادارکەرەوە و کوژاندنەوە بە FM‑200">شبكات الرشاشات ومضخات الحريق والإنذار والإطفاء بالغاز FM‑200</span><svg class="i i-dir" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
-      <li data-sys="bms"><a href="building-management.html"><span class="sys-code">BMS · 03</span><span class="hs-name" data-en="Building Management" data-ku="بەڕێوەبردنی باڵەخانە">إدارة البنايات</span><span class="hs-desc" data-en="Central control and monitoring of HVAC, lighting and energy" data-ku="کۆنترۆڵ و چاودێریی ناوەندیی HVAC، ڕووناکی و وزە">سيطرة ومراقبة مركزية للتبريد والإنارة والطاقة</span><svg class="i i-dir" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+      <li data-sys="hvac"><a href="central-cooling.html"><span class="sys-code">HVAC</span><span class="hs-name" data-en="Central Cooling &amp; HVAC" data-ku="فێنککردنەوە و ئێرکۆندیشنی ناوەندی">التبريد والتكييف المركزي</span><span class="hs-desc" data-en="Chillers, cooling towers, air handling units and VRF" data-ku="چیلەر، تاوەری فێنککەرەوە، یەکەی مامەڵەکردنی هەوا و VRF">الشلرات وأبراج التبريد ووحدات مناولة الهواء وأنظمة VRF</span><svg class="i i-dir" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+      <li data-sys="fire"><a href="fire-protection.html"><span class="sys-code">FIRE</span><span class="hs-name" data-en="Fire Protection" data-ku="بەرگری لە ئاگر">مكافحة الحرائق</span><span class="hs-desc" data-en="Sprinklers, fire pumps, alarm and FM‑200 suppression" data-ku="تۆڕی سپرینکلەر، پەمپی ئاگر، ئاگادارکەرەوە و کوژاندنەوە بە FM‑200">شبكات الرشاشات ومضخات الحريق والإنذار والإطفاء بالغاز FM‑200</span><svg class="i i-dir" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+      <li data-sys="bms"><a href="building-management.html"><span class="sys-code">BMS</span><span class="hs-name" data-en="Building Management" data-ku="بەڕێوەبردنی باڵەخانە">إدارة البنايات</span><span class="hs-desc" data-en="Central control and monitoring of HVAC, lighting and energy" data-ku="کۆنترۆڵ و چاودێریی ناوەندیی HVAC، ڕووناکی و وزە">سيطرة ومراقبة مركزية للتبريد والإنارة والطاقة</span><svg class="i i-dir" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
     </ul>
   </div>
 </section>
@@ -219,7 +218,6 @@
 <section class="sec" id="services" aria-labelledby="servicesTitle">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow" data-en="Our three main systems" data-ku="سێ سیستەمە سەرەکییەکەمان">أنظمتنا الرئيسية الثلاثة</p>
       <h2 id="servicesTitle" data-en="Three building systems, one accountable contractor" data-ku="سێ سیستەمی باڵەخانە، یەک بەڵێندەری بەرپرس">ثلاث منظومات، وجهة تنفيذ واحدة مسؤولة عنها</h2>
       <p class="lead" data-en="We design, install and maintain cooling, fire protection and building management together, so the building runs as one coordinated system rather than separate contracts." data-ku="فێنککردنەوە، بەرگری لە ئاگر و بەڕێوەبردنی باڵەخانە پێکەوە دیزاین دەکەین، دادەمەزرێنین و چاککارییان دەکەین، بۆ ئەوەی باڵەخانەکە وەک یەک سیستەمی هاوئاهەنگ کار بکات نەک وەک چەند گرێبەستێکی جیاواز.">نصمّم التبريد ومكافحة الحرائق وإدارة البناية وننفّذها ونصينها معاً، بحيث تعمل البناية كمنظومة واحدة منسّقة لا كعقود منفصلة.</p>
     </div>
@@ -228,7 +226,7 @@
       <article class="sys-card" data-sys="hvac">
         <picture><source type="image/webp" srcset="images/site-ductwork-600.webp 600w, images/site-ductwork-1000.webp 1000w" sizes="(max-width: 640px) 100vw, (max-width: 1023px) 38vw, 400px"><img src="images/site-ductwork.jpg" width="1000" height="750" alt="شبكة دكت معلّقة قيد التنفيذ في أحد مواقع العمل" data-en-alt="Suspended ductwork being installed on one of our sites" data-ku-alt="دامەزراندنی دەکتی هەڵواسراو لە یەکێک لە شوێنەکانی کارمان" loading="lazy" decoding="async"></picture>
         <div class="sys-card-body">
-          <span class="sys-code">HVAC · 01</span>
+          <span class="sys-code">HVAC</span>
           <h3><a href="central-cooling.html" data-en="Central Cooling &amp; HVAC Systems" data-ku="سیستەمەکانی فێنککردنەوە و ئێرکۆندیشنی ناوەندی">منظومات التبريد والتكييف المركزي</a></h3>
           <p data-en="Central cooling for hospitals, ministries, shopping centres and public buildings — from chiller plant rooms and cooling towers to air handling units and ductwork, backed by the exclusive Euroclima agency in Iraq." data-ku="فێنککردنەوەی ناوەندی بۆ نەخۆشخانە، وەزارەت، سەنتەرە بازرگانییەکان و باڵەخانە گشتییەکان — لە ژووری چیلەر و تاوەری فێنککەرەوەوە تا یەکەکانی مامەڵەکردنی هەوا و دەکت، بە پشتیوانیی بریکاریی تایبەتی Euroclima لە عێراق.">التبريد المركزي للمستشفيات والوزارات والمراكز التجارية والمنشآت العامة: من غرف الشلرات وأبراج التبريد إلى وحدات مناولة الهواء وشبكات الدكت، مع الوكالة الحصرية لوحدات Euroclima في العراق.</p>
           <ul class="ticks">
@@ -244,7 +242,7 @@
       <article class="sys-card" data-sys="fire">
         <picture><source type="image/webp" srcset="images/site-fire-pump-room-600.webp 600w, images/site-fire-pump-room-1000.webp 1000w" sizes="(max-width: 640px) 100vw, (max-width: 1023px) 38vw, 400px"><img src="images/site-fire-pump-room.jpg" width="1000" height="750" alt="غرفة مضخات وصمامات نظام إطفاء الحريق مع مقاييس الضغط في أحد مواقع العمل" data-en-alt="Fire pump and valve room with pressure gauges on one of our sites" data-ku-alt="ژووری پەمپ و ڤاڵڤەکانی ئاگر لەگەڵ پێوەرەکانی پەستان لە یەکێک لە شوێنەکانی کارمان" loading="lazy" decoding="async"></picture>
         <div class="sys-card-body">
-          <span class="sys-code">FIRE · 02</span>
+          <span class="sys-code">FIRE</span>
           <h3><a href="fire-protection.html" data-en="Fire Protection Systems" data-ku="سیستەمەکانی بەرگری لە ئاگر">أنظمة مكافحة الحرائق</a></h3>
           <p data-en="Sprinkler networks, fire pumps, alarm and detection, and FM‑200 clean-agent suppression for server and control rooms — built to work with the HVAC and building management systems, not in isolation." data-ku="تۆڕەکانی سپرینکلەر، پەمپی ئاگر، ئاگادارکەرەوە و دۆزینەوە، و کوژاندنەوە بە گازی پاکی FM‑200 بۆ ژووری سێرڤەر و کۆنترۆڵ — دروستکراون بۆ ئەوەی لەگەڵ سیستەمەکانی HVAC و بەڕێوەبردنی باڵەخانە کار بکەن، نەک بە جیا.">شبكات الرشاشات ومضخات الحريق وأنظمة الإنذار والكشف، والإطفاء بالغاز النظيف FM‑200 لغرف السيرفرات والسيطرة — منفّذة لتعمل مع منظومة التكييف وإدارة البناية، لا بمعزل عنهما.</p>
           <ul class="ticks">
@@ -260,7 +258,7 @@
       <article class="sys-card" data-sys="bms">
         <picture><source type="image/webp" srcset="images/site-electrical-panels-600.webp 600w, images/site-electrical-panels-1000.webp 1000w" sizes="(max-width: 640px) 100vw, (max-width: 1023px) 38vw, 400px"><img src="images/site-electrical-panels.jpg" width="1000" height="750" alt="لوحات التوزيع والسيطرة الكهربائية وترييات الكيبلات في أحد مواقع العمل" data-en-alt="Distribution and control panels with cable trays on one of our sites" data-ku-alt="تابلۆکانی دابەشکردن و کۆنترۆڵ لەگەڵ سینیی کێبڵەکان لە یەکێک لە شوێنەکانی کارماندا" loading="lazy" decoding="async"></picture>
         <div class="sys-card-body">
-          <span class="sys-code">BMS · 03</span>
+          <span class="sys-code">BMS</span>
           <h3><a href="building-management.html" data-en="Building Management Systems (BMS)" data-ku="سیستەمەکانی بەڕێوەبردنی باڵەخانە (BMS)">أنظمة إدارة البنايات (BMS)</a></h3>
           <p data-en="Central control and monitoring of HVAC, lighting and energy from one operator interface, linking the fire alarm to the air-conditioning, with continuous monitoring that exposes waste." data-ku="کۆنترۆڵ و چاودێریی ناوەندیی HVAC، ڕووناکی و وزە لە یەک ڕووکاری کارپێکردنەوە، بەستنەوەی ئاگادارکەرەوەی ئاگر بە ئێرکۆندیشنەوە، لەگەڵ چاودێریی بەردەوام کە بەفیڕۆدان ئاشکرا دەکات.">سيطرة ومراقبة مركزية لأنظمة التبريد والإنارة والطاقة من واجهة تشغيل واحدة، مع ربط إنذار الحريق بمنظومة التكييف، ومراقبة مستمرة تكشف الهدر.</p>
           <ul class="ticks">
@@ -301,7 +299,6 @@
   <div class="wrap">
     <div class="sec-head-row">
       <div class="sec-head">
-        <p class="eyebrow" data-en="Selected projects" data-ku="پڕۆژە هەڵبژێردراوەکان">مشاريع مختارة</p>
         <h2 id="projectsTitle" data-en="Delivered projects in healthcare, government and public buildings" data-ku="پڕۆژەی تەواوکراو لە کەرتی تەندروستی، حکومی و باڵەخانە گشتییەکان">مشاريع منجزة في الصحة والدولة والمنشآت العامة</h2>
       </div>
       <a class="more-link" href="projects.html"><span data-en="View all projects" data-ku="هەموو پڕۆژەکان ببینە">عرض جميع المشاريع</span><svg class="i i-dir" aria-hidden="true"><use href="#i-arrow"/></svg></a>
@@ -430,7 +427,7 @@
       <h2 id="ctaTitle" data-en="Discuss your project with our engineering team" data-ku="پڕۆژەکەت لەگەڵ تیمی ئەندازیاریمان تاوتوێ بکە">ناقش مشروعك مع فريقنا الهندسي</h2>
       <p data-en="Send your project details or call us directly. Our team will review the requirements and come back with a technical and commercial proposal." data-ku="وردەکاریی پڕۆژەکەت بنێرە یان ڕاستەوخۆ پەیوەندیمان پێوە بکە. تیمەکەمان پێداویستییەکان هەڵدەسەنگێنێت و پێشنیارێکی تەکنیکی و بازرگانیت پێشکەش دەکات.">أرسل تفاصيل مشروعك أو اتصل مباشرة، ويدرس فريقنا المتطلبات ويقدّم العرض الفني والتجاري المناسب.</p>
       <div class="btn-row">
-        <a class="btn btn-light" href="contact.html"><span data-en="Request a technical study or quote" data-ku="داوای لێکۆڵینەوەی تەکنیکی یان نرخ بکە">اطلب دراسة فنية أو عرض سعر</span><svg class="i i-dir" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-light" href="contact.html"><span data-en="Request a technical study or quote" data-ku="داوای لێکۆڵینەوەی تەکنیکی یان نرخ بکە">اطلب دراسة فنية أو عرض سعر</span></a>
         <a class="btn btn-ghost-light" href="https://wa.me/9647734114077" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg><span data-en="Message us on WhatsApp" data-ku="لە واتساپ نامەمان بۆ بنێرە">مراسلة عبر واتساب</span></a>
       </div>
     </div>
@@ -498,13 +495,13 @@
   </div>
 </footer>
 
-<div class="quick-contact" role="group" aria-label="تواصل سريع" data-en-label="Quick contact" data-ku-label="پەیوەندیی خێرا">
+<aside class="quick-contact" aria-label="تواصل سريع" data-en-label="Quick contact" data-ku-label="پەیوەندیی خێرا">
   <a class="qc-call" href="tel:+9647734114077"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg><span data-en="Call us" data-ku="پەیوەندیمان پێوە بکە">اتصل بنا</span></a>
   <a class="qc-wa" href="https://wa.me/9647734114077" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg><span data-en="WhatsApp" data-ku="واتساپ">واتساب</span></a>
   <a class="qc-quote" href="contact.html"><svg class="i" aria-hidden="true"><use href="#i-doc"/></svg><span data-en="Quote" data-ku="نرخ">عرض سعر</span></a>
-</div>
+</aside>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<svg class="svg-defs" width="0" height="0" aria-hidden="true">
   <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
   <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.2z"/></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></g></symbol>
@@ -520,7 +517,7 @@
 </svg>
 
 <script>window.SITE_I18N = {"title": {"ar": "مجموعة البحراني — التبريد المركزي ومكافحة الحرائق وإدارة البنايات في العراق", "en": "Albahrany Group — Central Cooling, Fire Protection & Building Management in Iraq", "ku": "گرووپی بەحرانی — فێنککردنەوەی ناوەندی، بەرگری لە ئاگر و بەڕێوەبردنی باڵەخانە لە عێراق"}, "desc": {"ar": "مجموعة البحراني: تصميم وتنفيذ وصيانة منظومات التبريد والتكييف المركزي ومكافحة الحرائق وإدارة البنايات (BMS) في العراق منذ 2002. وكالة حصرية لشركة Euroclima وموزّع معتمد لشركة Baltimore Aircoil.", "en": "Albahrany Group designs, installs and maintains central cooling and HVAC, fire protection and building management systems (BMS) in Iraq since 2002. Exclusive Euroclima agency and authorised Baltimore Aircoil distributor.", "ku": "گرووپی بەحرانی لە ساڵی 2002ەوە سیستەمەکانی فێنککردنەوە و ئێرکۆندیشنی ناوەندی، بەرگری لە ئاگر و بەڕێوەبردنی باڵەخانە (BMS) لە عێراق دیزاین دەکات، دادەمەزرێنێت و چاککارییان دەکات. بریکاریی تایبەتی Euroclima و دابەشکەری فەرمیی Baltimore Aircoil."}};</script>
-<script src="assets/site.js?v=20261124" defer></script>
+<script src="assets/site.js?v=20261125" defer></script>
 
 </body>
 </html>

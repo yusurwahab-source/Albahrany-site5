@@ -1,0 +1,18 @@
+# Cloudflare only (GitHub Pages ignores this file).
+# HTML handling is off so that the .html URLs are kept, so the home page is mapped by hand.
+/ /index.html 200
+
+# Addresses without .html answered on GitHub Pages too; send them to the real page.
+/about /about.html 301
+/after-sales /after-sales.html 301
+/building-management /building-management.html 301
+/central-cooling /central-cooling.html 301
+/contact /contact.html 301
+/energy-efficiency /energy-efficiency.html 301
+/fire-protection /fire-protection.html 301
+/indoor-air-quality /indoor-air-quality.html 301
+/projects /projects.html 301
+/refrigeration /refrigeration.html 301
+/services /services.html 301
+/testing-balancing-commissioning /testing-balancing-commissioning.html 301
+/tri-generation /tri-generation.html 301

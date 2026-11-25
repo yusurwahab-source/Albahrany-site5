@@ -42,7 +42,7 @@ There are no separate English or Kurdish URLs and no `hreflang`. Changing that i
 3. **Keep public URLs.** The 14 public `.html` URLs (13 original pages plus `services.html`) are in the sitemap. GitHub Pages cannot redirect server-side, so any URL change needs an owner-approved plan. Keep the in-page anchor ids that older links use (`#systems`, `#choose`, `#products`, `#method`, `#faq`, `#process` and others).
 4. **The contact form must never claim delivery it did not make.** With no endpoint it only prepares the message, and the visitor sends it by WhatsApp or email.
 5. **Read before you design or edit**, and present major design or architecture changes to the owner first.
-6. **No push, no deploy, no new dependencies or third-party plugins** without the owner's approval.
+6. **Commits and pushes to unpublished branches are pre-approved** (owner, 24 Nov 2026): commit and push finished work without asking. **Merging into `main` is a deploy** and still needs the owner's approval each time, as do new dependencies and third-party plugins.
 7. **Do not delete** images or content because they look unused. Verify references first. `images/favicon-512.png` is unreferenced but kept.
 
 ## Skills (in `.claude/skills/`)
@@ -64,3 +64,6 @@ The official Anthropic `frontend-design` plugin may be used for visual craft. Wh
 - No React, Tailwind, bundler or framework. The only build is `_build/build.py`.
 - Audit reports and screenshots go under `.webdev-studio/` (git-ignored, never published).
 - Never push to `main`: GitHub Pages publishes it, so a push is a production deploy.
+- Fonts are IBM Plex Sans Arabic (400, 600) and IBM Plex Sans (variable, 400–600), served from `assets/fonts/` and cut down to the Arabic block and Latin. No Google Fonts request and no third weight. Text is never smaller than `--fs-2xs` (13px).
+- Breakpoints are `max-width` 479 / 767 / 1023 / 1279 only (`min-width` 768 / 1024 / 1280 for the opposite side).
+- Motion: no reveal-on-scroll and no card lift. The capacity bars and the system chain are the only animated moments, and both stop.

@@ -27,7 +27,7 @@ from html.parser import HTMLParser
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "_build")
 SITE = "https://albahranygroup.com/"
-VERSION = "20261124"          # bump to force browsers to reload CSS/JS
+VERSION = "20261125"          # bump to force browsers to reload CSS/JS
 LASTMOD = "2026-11-24"        # sitemap <lastmod>: set to the date the content last changed
 
 ORG_ID = SITE + "#organization"

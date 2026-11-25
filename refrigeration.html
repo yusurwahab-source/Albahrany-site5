@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>(function(d){try{var l=localStorage.getItem('ab-lang');if(l==='en'){d.lang='en';d.dir='ltr';}else if(l==='ku'){d.lang='ckb';}}catch(e){}d.classList.add('js');})(document.documentElement);</script>
+<script>(function(d){try{var l=localStorage.getItem('ab-lang');if(l==='en'){d.lang='en';d.dir='ltr';}else if(l==='ku'){d.lang='ckb';}if(l==='en'||l==='ku'){d.classList.add('i18n-wait');setTimeout(function(){d.classList.remove('i18n-wait');},1500);}}catch(e){}d.classList.add('js');})(document.documentElement);</script>
 <title>التبريد الصناعي والتجاري في العراق — غرف ومخازن التبريد وأبراج التبريد | مجموعة البحراني</title>
 <meta name="description" content="تصميم وتنفيذ وصيانة غرف التبريد والتجميد ومخازن التبريد وتبريد العمليات الصناعية وأبراج التبريد في العراق، كموزّع معتمد لشركة Baltimore Aircoil.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
@@ -77,16 +77,15 @@
 <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 <meta name="theme-color" content="#0B2236">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="assets/site.css?v=20261124">
+<link rel="preload" href="assets/fonts/plex-sans-arabic-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/plex-sans-arabic-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css?v=20261125">
 </head>
 <body class="theme-hvac">
 
 <a class="skip-link" href="#main" data-en="Skip to content" data-ku="بازدان بۆ ناوەڕۆک">تخطَّ إلى المحتوى</a>
 
-<div class="topbar">
+<aside class="topbar" aria-label="تواصل سريع" data-en-label="Quick contact" data-ku-label="پەیوەندیی خێرا">
   <div class="wrap topbar-in">
     <p class="topbar-note" data-en="Building services engineering in Iraq since 2002" data-ku="ئەندازیاریی خزمەتگوزارییەکانی باڵەخانە لە عێراق لە ساڵی 2002ەوە">هندسة خدمات البنايات في العراق منذ 2002</p>
     <ul class="topbar-links">
@@ -95,7 +94,7 @@
       <li><a href="mailto:Mahmood@albahranygroup.com"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg><span dir="ltr">Mahmood@albahranygroup.com</span></a></li>
     </ul>
   </div>
-</div>
+</aside>
 
 <header class="site-header" id="siteHeader">
   <div class="wrap header-in">
@@ -132,7 +131,7 @@
 
     <div class="header-actions">
       <div class="lang">
-        <button class="lang-btn" id="langBtn" type="button" aria-expanded="false" aria-controls="langMenu"><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg><span class="lang-cur" id="langCur" aria-hidden="true">AR</span><svg class="i chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+        <button class="lang-btn" id="langBtn" type="button" aria-expanded="false" aria-controls="langMenu"><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg><span class="visually-hidden" data-en="Language: English" data-ku="زمان: کوردی">اللغة: العربية</span><span class="lang-cur" id="langCur">AR</span><svg class="i chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
         <ul class="lang-menu" id="langMenu">
           <li><button type="button" data-set-lang="ar" lang="ar" dir="rtl">العربية</button></li>
           <li><button type="button" data-set-lang="en" lang="en" dir="ltr">English</button></li>
@@ -156,7 +155,7 @@
       <p class="kicker" data-en="Cold rooms, cold storage, process cooling and cooling towers — across Iraq" data-ku="ژووری سارد، کۆگای سارد، فێنککردنەوەی پرۆسە و تاوەری فێنککەرەوە — لە سەرانسەری عێراق">غرف ومخازن التبريد، وتبريد العمليات، وأبراج التبريد — في العراق</p>
       <p class="lede" data-en="Industrial refrigeration is not comfort cooling: the load is continuous, and temperature and humidity are part of the product’s quality rather than of people’s comfort. We design, install and maintain cold and freezer rooms, cold storage, industrial process cooling and heat rejection towers, selecting the system around the stored material or production process and Iraqi operating conditions." data-ku="فێنککردنەوەی پیشەسازی فێنککردنەوەی ئاسوودەیی نییە: بارەکە بەردەوامە، و پلەی گەرمی و شێ بەشێکن لە کوالیتی بەرهەمەکە نەک لە ئاسوودەیی خەڵک. ئێمە ژووری سارد و ژووری بەستن، کۆگای سارد، فێنککردنەوەی پرۆسەی پیشەسازی و تاوەرەکانی دەرکردنی گەرمی دیزاین دەکەین و دادەمەزرێنین و چاککارییان دەکەین، و سیستەمەکە بەپێی کاڵای هەڵگیراو یان پرۆسەی بەرهەمهێنان و هەلومەرجی کارکردن لە عێراق هەڵدەبژێرین.">التبريد الصناعي يختلف عن تكييف الراحة: الحمل مستمر، ودرجة الحرارة والرطوبة جزء من جودة المنتج نفسه لا من راحة الأشخاص. نصمّم وننفّذ ونصين غرف التبريد والتجميد ومخازن التبريد وتبريد العمليات الصناعية وأبراج طرح الحرارة، ونختار المنظومة على أساس المادة المخزونة أو العملية الإنتاجية وظروف التشغيل في العراق.</p>
       <div class="btn-row">
-        <a class="btn btn-primary" href="contact.html"><span data-en="Request a technical assessment or quote" data-ku="داوای هەڵسەنگاندنی تەکنیکی یان نرخ بکە">اطلب تقييماً فنياً أو عرض سعر</span><svg class="i i-dir" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-primary" href="contact.html"><span data-en="Request a technical assessment or quote" data-ku="داوای هەڵسەنگاندنی تەکنیکی یان نرخ بکە">اطلب تقييماً فنياً أو عرض سعر</span></a>
         <a class="btn btn-secondary" href="#assessment"><span data-en="What information do we need?" data-ku="پێویستمان بە چ زانیارییەک هەیە؟">ما المعلومات المطلوبة؟</span></a>
       </div>
     </div>
@@ -196,7 +195,7 @@
         </tbody>
       </table>
     </div>
-    <div class="prose" style="margin-top:28px">
+    <div class="prose gap-above">
       <p data-en="Industrial facilities usually need both: refrigeration for stores and production lines, and air conditioning for work and office areas. Where that is the case, we treat industrial cooling and air conditioning as one system and design both parts together." data-ku="دامەزراوە پیشەسازییەکان زۆرجار پێویستیان بە هەردووکیان هەیە: فێنککردنەوەی پیشەسازی بۆ کۆگاکان و هێڵەکانی بەرهەمهێنان، و ئێرکۆندیشن بۆ شوێنەکانی کار و نووسینگەکان. لەو حاڵەتانەدا، فێنککردنەوەی پیشەسازی و ئێرکۆندیشن وەک یەک سیستەم مامەڵە دەکەین و هەردوو بەشەکە پێکەوە دیزاین دەکەین.">في المنشآت الصناعية يجتمع الاثنان غالباً: تبريد صناعي للمخازن وخطوط الإنتاج، وتكييف لفضاءات العمل والإدارة. لذلك نتعامل مع التبريد والتكييف الصناعي كمنظومة واحدة عند الحاجة، ونصمّم الجزأين معاً.</p>
     </div>
     <a class="chip-link" href="central-cooling.html" data-sys="hvac"><span class="sys-mark" aria-hidden="true"></span><span data-en="Cooling for the building spaces themselves? See central HVAC systems" data-ku="فێنککردنەوە بۆ خودی شوێنەکانی باڵەخانە؟ سەیری سیستەمەکانی فێنککردنەوە و ئێرکۆندیشنی ناوەندی بکە">لتبريد فضاءات البناية نفسها: أنظمة التبريد والتكييف المركزي</span></a>
@@ -214,7 +213,7 @@
       <li><h3 data-en="Sub-zero freezer rooms" data-ku="ژووری بەستن لە خوارووی سفرەوە">غرف التجميد تحت الصفر</h3><p data-en="For frozen goods such as meat and frozen food; they need thicker insulation and measures against floor freezing and ice build-up on the evaporator." data-ku="بۆ کاڵای بەستوو وەک گۆشت و خۆراکی بەستوو؛ پێویستیان بە ئیزۆلەی ئەستوورتر و ڕێوشوێن هەیە دژی بەستنی زەوی و کەڵەکەبوونی سەهۆڵ لەسەر ئیڤاپۆرەیتەر.">لحفظ المواد المجمّدة كاللحوم والأغذية المجمّدة، وتحتاج عزلاً أسمك ومعالجةً لتجمّد الأرضية ولتراكم الثلج على المبخّر.</p></li>
       <li><h3 data-en="Pharmaceutical and sensitive-goods stores" data-ku="کۆگای دەرمان و کاڵا هەستیارەکان">مخازن الأدوية والمواد الحساسة</h3><p data-en="Stores where temperature is held within a defined range and monitored continuously, because leaving that range can spoil the product." data-ku="ئەو کۆگایانەی پلەی گەرمی تێیاندا لە نێو مەودایەکی دیاریکراودا ڕادەگیرێت و بەردەوام چاودێری دەکرێت، چونکە دەرچوون لەو مەودایە دەتوانێت بەرهەمەکە تێکبدات.">مخازن تُضبط فيها درجة الحرارة ضمن مدى محدد وتُراقَب باستمرار، لأن الخروج عن هذا المدى قد يُتلف المادة.</p></li>
     </ul>
-    <div class="callout" style="margin-top:24px">
+    <div class="callout gap-above">
       <p data-en="Among our delivered projects in pharmaceutical facilities are the Kimadia pharmaceutical warehouses in Al-Jamia, Baghdad, at 450 TR." data-ku="لە پڕۆژە جێبەجێکراوەکانمان لە دامەزراوە دەرمانییەکاندا، کۆگاکانی دەرمانی کیمادیا لە حەیی جامیعەی بەغدا بە توانای 450 TR.">ومن مشاريعنا المنجزة في المنشآت الدوائية مخازن أدوية كيماديا في حي الجامعة ببغداد بسعة 450 طن تبريد.</p>
       <p><a class="more-link" href="projects.html"><span data-en="See our delivered projects" data-ku="پڕۆژە جێبەجێکراوەکانمان ببینە">اطّلع على المشاريع المنجزة</span><svg class="i i-dir" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
     </div>
@@ -260,7 +259,7 @@
       <li><h3 data-en="Continuous operation" data-ku="کارکردنی بەردەوام">تشغيل متواصل</h3><p data-en="Equipment selected to withstand continuous load and high ambient conditions." data-ku="ئامێرەکان بە جۆرێک هەڵدەبژێردرێن کە بەرگەی باری بەردەوام و پلەی گەرمی بەرزی دەوروبەر بگرن.">اختيار معدّات تتحمّل الحمل المستمر وظروف الحرارة المرتفعة.</p></li>
       <li><h3 data-en="Room to expand" data-ku="بواری فراوانکردن">توسّع مستقبلي</h3><p data-en="A design that allows capacity to grow later without rebuilding the system." data-ku="دیزاینێک کە ڕێگە دەدات توانا دواتر زیاد بکرێت بەبێ دووبارە دروستکردنەوەی سیستەمەکە.">تصميم يسمح بزيادة السعة لاحقاً دون إعادة بناء المنظومة.</p></li>
     </ul>
-    <p class="note" style="margin-top:28px" data-en="We are an authorised distributor for Baltimore Aircoil in cooling towers and evaporative condensers, and we cooperate with Carrier on supply." data-ku="لە تاوەری فێنککەرەوە و کۆندێنسەری بەهەڵمکردندا وەک دابەشکەری فەرمی Baltimore Aircoil کار دەکەین، و لە دابینکردندا هاوکاری Carrier دەکەین.">نحن موزّع معتمد لشركة Baltimore Aircoil في أبراج التبريد والمكثفات التبخيرية، ونتعاون مع Carrier في التجهيز.</p>
+    <p class="note gap-above" data-en="We are an authorised distributor for Baltimore Aircoil in cooling towers and evaporative condensers, and we cooperate with Carrier on supply." data-ku="لە تاوەری فێنککەرەوە و کۆندێنسەری بەهەڵمکردندا وەک دابەشکەری فەرمی Baltimore Aircoil کار دەکەین، و لە دابینکردندا هاوکاری Carrier دەکەین.">نحن موزّع معتمد لشركة Baltimore Aircoil في أبراج التبريد والمكثفات التبخيرية، ونتعاون مع Carrier في التجهيز.</p>
   </div>
 </section>
 
@@ -298,7 +297,7 @@
       <h2 id="ctaTitle" data-en="Request a technical assessment for your refrigeration system" data-ku="داوای هەڵسەنگاندنی تەکنیکی بۆ سیستەمی فێنککردنەوەکەت بکە">اطلب تقييماً فنياً لمنظومة التبريد</h2>
       <p data-en="Send us the material or process, the capacity and the site, and we’ll come back with an assessment and a suitable proposal." data-ku="کاڵاکە یان پرۆسەکە، توانا و شوێنەکەمان بۆ بنێرە، و ئێمە بە هەڵسەنگاندن و پێشنیارێکی گونجاوەوە وەڵامت دەدەینەوە.">أرسل لنا نوع المادة أو العملية والسعة والموقع، ونرجع لك بالتقييم والعرض المناسب.</p>
       <div class="btn-row">
-        <a class="btn btn-light" href="contact.html"><span data-en="Request a technical study or quote" data-ku="داوای لێکۆڵینەوەی تەکنیکی یان نرخ بکە">اطلب دراسة فنية أو عرض سعر</span><svg class="i i-dir" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-light" href="contact.html"><span data-en="Request a technical study or quote" data-ku="داوای لێکۆڵینەوەی تەکنیکی یان نرخ بکە">اطلب دراسة فنية أو عرض سعر</span></a>
         <a class="btn btn-ghost-light" href="https://wa.me/9647734114077" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg><span data-en="Message us on WhatsApp" data-ku="لە واتساپ نامەمان بۆ بنێرە">مراسلة عبر واتساب</span></a>
       </div>
     </div>
@@ -366,13 +365,13 @@
   </div>
 </footer>
 
-<div class="quick-contact" role="group" aria-label="تواصل سريع" data-en-label="Quick contact" data-ku-label="پەیوەندیی خێرا">
+<aside class="quick-contact" aria-label="تواصل سريع" data-en-label="Quick contact" data-ku-label="پەیوەندیی خێرا">
   <a class="qc-call" href="tel:+9647734114077"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg><span data-en="Call us" data-ku="پەیوەندیمان پێوە بکە">اتصل بنا</span></a>
   <a class="qc-wa" href="https://wa.me/9647734114077" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg><span data-en="WhatsApp" data-ku="واتساپ">واتساب</span></a>
   <a class="qc-quote" href="contact.html"><svg class="i" aria-hidden="true"><use href="#i-doc"/></svg><span data-en="Quote" data-ku="نرخ">عرض سعر</span></a>
-</div>
+</aside>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<svg class="svg-defs" width="0" height="0" aria-hidden="true">
   <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
   <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.2z"/></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></g></symbol>
@@ -388,7 +387,7 @@
 </svg>
 
 <script>window.SITE_I18N = {"title": {"ar": "التبريد الصناعي والتجاري في العراق — غرف ومخازن التبريد وأبراج التبريد | مجموعة البحراني", "en": "Industrial & Commercial Refrigeration in Iraq — Cold Rooms, Cold Stores & Cooling Towers | Albahrany Group", "ku": "فێنککردنەوەی پیشەسازی و بازرگانی لە عێراق — ژووری سارد، کۆگای سارد و تاوەری فێنککەرەوە | گرووپی بەحرانی"}, "desc": {"ar": "تصميم وتنفيذ وصيانة غرف التبريد والتجميد ومخازن التبريد وتبريد العمليات الصناعية وأبراج التبريد في العراق، كموزّع معتمد لشركة Baltimore Aircoil.", "en": "Design, installation and maintenance of chilled and freezer rooms, cold storage, industrial process cooling and cooling towers in Iraq, as an authorised Baltimore Aircoil distributor.", "ku": "دیزاین و دامەزراندن و چاککاری ژووری سارد و ژووری بەستن، کۆگای سارد، فێنککردنەوەی پرۆسەی پیشەسازی و تاوەری فێنککەرەوە لە عێراق، وەک دابەشکەری فەرمی Baltimore Aircoil."}};</script>
-<script src="assets/site.js?v=20261124" defer></script>
+<script src="assets/site.js?v=20261125" defer></script>
 
 </body>
 </html>

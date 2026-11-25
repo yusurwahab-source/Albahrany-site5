@@ -56,8 +56,7 @@
     setMeta('meta[name="twitter:title"]', i18n('title', lang));
     setMeta('meta[property="og:locale"]', L.locale);
 
-    var btn = document.getElementById('langBtn');
-    if (btn) btn.setAttribute('aria-label', L.label);
+    // the language button is named by its own text: a hidden label (swapped like any other string) plus the visible code
     var cur = document.getElementById('langCur');
     if (cur) cur.textContent = L.code;
     each('[data-set-lang]', function (b) {
@@ -235,4 +234,5 @@
   var saved = 'ar';
   try { var v = localStorage.getItem(KEY); if (LANGS[v]) saved = v; } catch (e) {}
   setLang(saved);
+  root.classList.remove('i18n-wait');
 })();
